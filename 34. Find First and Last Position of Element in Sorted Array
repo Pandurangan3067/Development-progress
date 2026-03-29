@@ -1,0 +1,26 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if len(nums)!=0:
+            l,h=0,len(nums)-1
+            r1,r2=-1,-1
+            while l<=h :
+                m=(l+h)//2
+                if nums[m]==target:
+                    r1=m
+                    h=m-1
+                elif nums[m]<target:
+                    l=m+1
+                else:
+                    h=m-1
+            l,h=0,len(nums)-1
+            while l<=h:
+                m=(l+h)//2
+                if nums[m]==target:
+                    r2=m
+                    l=m+1
+                elif nums[m]<target:
+                    l=m+1
+                else:
+                    h=m-1
+            return [r1,r2]
+        return [-1, -1]
