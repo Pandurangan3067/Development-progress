@@ -1,0 +1,10 @@
+class Solution:
+    def countDigits(self, num: int) -> int:
+        copy,c=num,0
+        while copy>0:
+            if num % (copy%10) == 0:
+                c+=1
+            copy//=10
+        return c
+
+        
